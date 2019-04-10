@@ -1,0 +1,27 @@
+{
+    "name": "omnetpp-ned",
+    "displayName": "OMNeT++ NED",
+    "description": "Syntax highlighting for the OMNeT++ NED language",
+    "version": "0.0.1",
+    "publisher": "schrej",
+    "repository": {"type": "git", "url": "https://github.com/schrej/vscode-omnetpp-ned"},
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "omnetpp-ned",
+            "aliases": ["OMNeT++ NED", "omnetpp-ned"],
+            "extensions": [".ned"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "omnetpp-ned",
+            "scopeName": "source.ned",
+            "path": "./syntaxes/omnetpp-ned.tmLanguage.json"
+        }]
+    }
+}

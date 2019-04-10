@@ -1,0 +1,125 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "OMNeT++ NED",
+	"patterns": [
+		{"include": "#sections"},
+		{"include": "#comments"}
+	],
+	"repository": {
+		"sections": {
+			"patterns": [{
+				"name": "section.component.ned",
+				"begin": "^\\W*(channel|channelinterface|simple|module|network|moduleinterface)\\W*(\\w*)(?:\\W*(extends)\\W*(\\w*))?[\\W\\n]*({)",
+				"end": "}",
+				"patterns": [
+					{"include": "#block-contents"}
+				],
+				"beginCaptures": {
+					"1": {"name": "storage.type.ned"},
+					"2": {"name": "entity.name.class.ned"},
+					"3": {"name": "storage.modifier.ned"},
+					"4": {"name": "entity.other.inherited-class"},
+					"5": {"name": "punctuation.definition.begin.ned"}
+				},
+				"endCaptures": {
+					"0": {"name": "punctuation.definition.end.ned"}
+				}
+			}]
+		},
+		"blocks": {
+			"name": "meta.block.ned",
+			"begin": "{",
+			"beginCaptures": {
+				"0": {"name": "punctuation.block.begin.ned"}
+			},
+			"end": "}",
+			"endCaptures": {
+				"0": {"name": "punctuation.block.end.ned"}
+			},
+			"patterns": [
+				{"include": "#block-contents"}
+			]
+		},
+		"block-contents": {
+			"patterns": [
+				{"include": "#keywords"},
+				{"include": "#strings"},
+				{"include": "#properties"},
+				{"include": "#comments"},
+				{"include": "#blocks"},
+				{"include": "#numerics"},
+				{"include": "#terminator"}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.special.ned",
+					"match": "(-->|<--|<-->|\\.\\.)"
+				}, {
+					"name": "keyword.types.ned",
+					"match": "\\b(inout|input|output|bool|double|int|string|xml|volatile)\\b"
+				}, {
+					"name": "keyword.ned",
+					"match": "\\b(parameters|gates|types|submodules|connections|allowunconnected|extends|for|if|import|like|package|property|sizeof|const|default|ask|this|index|typename|xmldoc)\\b"
+				}, {
+					"name": "keyword.types.ned",
+					"match": "\\b(inout|input|output|bool|double|int|string|xml|volatile)\\b"
+				}, {
+					"name": "keyword.functions.ned",
+					"match": "\\b(acos|asin|atan|atan2|bernoulli|beta|binomial|cauchy|ceil|chi_square|cos|erlang_k|exp|exponential|fabs|floor|fmod|gamma_d|genk_exponential|genk_intuniform|genk_normal|genk_truncnormal|genk_uniform|geometric|hypergeometric|hypot|intuniform|log|log10|lognormal|max|min|negbinomial|normal|pareto_shifted|poisson|pow|simTime|sin|sqrt|student_t|tan|triang|truncnormal|uniform|weibull|xml|xmldoc)\\(\\b"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [{
+				"name": "constant.language.ned",
+				"match": "\\b(true|false)\\b"
+			}]
+		},
+		"properties": {
+			"begin": "(@\\w+)((?:\\[\\w+\\])?)(\\()",
+			"beginCaptures": {
+				"1": {"name": "entity.name.function.property.ned"},
+				"3": {"name": "punctuation.definition.propertyparams.begin.ned"}
+			},
+			"end":  "\\)",
+			"endCaptures": {
+				"0": {"name": "punctuation.definition.propertyparams.end.ned"}
+			},
+			"patterns": [
+				{"include": "#strings"},
+				{"include": "#numerics"}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.ned",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ned",
+					"match": "\\\\(x[\\dA-Fa-f]{2}|b|f|n|r|t|\\\\|\")"
+				}
+			]
+		},
+		"numerics": {
+			"name": "constant.numeric.ned",
+			"match": "(0x[\\dA-Fa-f]+|\\d+(?:\\.\\d+)?|nan|-?inf)"
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.ned",
+					"begin": "\/\/",
+					"end": "$\\n?"
+				}
+			]
+		},
+		"terminator": {
+			"name": "punctuation.terminator.ned",
+			"match": ";"
+		}
+	},
+	"scopeName": "source.ned"
+}
