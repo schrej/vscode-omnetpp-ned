@@ -57,11 +57,8 @@
 					"name": "keyword.special.ned",
 					"match": "(-->|<--|<-->|\\.\\.)"
 				}, {
-					"name": "keyword.types.ned",
-					"match": "\\b(inout|input|output|bool|double|int|string|xml|volatile)\\b"
-				}, {
 					"name": "keyword.ned",
-					"match": "\\b(parameters|gates|types|submodules|connections|allowunconnected|extends|for|if|import|like|package|property|sizeof|const|default|ask|this|index|typename|xmldoc)\\b"
+					"match": "\\b(parameters|gates|types|submodules|connections|allowunconnected|for|if|import|like|package|property|sizeof|const|default|ask|this|index|typename|xmldoc)\\b"
 				}, {
 					"name": "keyword.types.ned",
 					"match": "\\b(inout|input|output|bool|double|int|string|xml|volatile)\\b"
