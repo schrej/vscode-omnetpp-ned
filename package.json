@@ -9,7 +9,7 @@
         "url": "https://github.com/schrej/vscode-omnetpp-ned"
     },
     "engines": {
-        "vscode": "^1.33.0"
+        "vscode": "^1.0.0"
     },
     "categories": [
         "Programming Languages"
