@@ -180,7 +180,7 @@
 		},
 		"numerics": {
 			"name": "constant.numeric.ned",
-			"match": "(0x[\\dA-Fa-f]+|\\d+(?:\\.\\d+)?|nan|-?inf)"
+			"match": "(?<![-.\\w])(0x[\\dA-Fa-f]+|-?\\d+(?:\\.\\d+)?|nan|-?inf)"
 		},
 		"comments": {
 			"patterns": [
