@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.3
+
+- reduce required VS Code version to 1.0.0
+
 ## 0.0.2
 
 - add indentation rules
