@@ -2,7 +2,7 @@
     "name": "omnetpp-ned",
     "displayName": "OMNeT++ NED",
     "description": "Syntax highlighting for the OMNeT++ NED language",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "schrej",
     "repository": {
         "type": "git",
