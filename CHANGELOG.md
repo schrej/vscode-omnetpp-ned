@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.4
+
+- improve numerics regex so it no longer highlights numbers within words
+
 ## 0.0.3
 
 - reduce required VS Code version to 1.0.0
